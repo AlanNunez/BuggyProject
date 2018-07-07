@@ -22,6 +22,20 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UISwitch)
     {
         print("Method: \(#function) in file: \(#file) line: \(#line) called.")
+        
+        buggyMethod()
     }
+     func buggyMethod()
+     {
+        let array = NSMutableArray()
+        for i in 0..<10
+        {
+            array.insert(i, at: i)
+        }
+        for _ in 0...10
+        {
+            array.removeObject(at: 0)
+        }
+     }
 }
 
